@@ -1,0 +1,43 @@
+---
+title: "README"
+author: "Kathleen"
+date: "6/22/2019"
+output: html_document
+---
+
+
+## Code Book 
+
+The script run_analysis.R creates an output of the UCI HAR Dataset that merges test and training data in a cohesive,tidy dataset.
+
+1. the first code chunk downloads the UCI HAR datasets into R. 
+        Each dataset is named as follows: 
+        xtrain = 'X_train.txt'
+        ytrain = 'Y_train.txt'
+        subtrain = 'subject_train.txt'
+        features = 'features.txt'
+        activity = 'activity_lables.txt'
+        xtest = 'X_test.txt'
+        ytest = 'Y_test.txt' 
+        subtest = 'subject_test.txt'
+2. The second chunk of code sets column names for xtrain, ytrain, xtest, and ytest
+        xtest and xtrain's column names were set to the vector of variables listed in features
+        ytest and ytrain are given the column name 'activityID'
+        subtrain and subtest were given the column name 'subjectId' 
+3. Next, the datasets were merged to create one dataset for training and one dataset for testing
+        mergetrain = merged dataset of xtrain,ytrain, subtrain
+        mergetest = merged dataset of xtest, ytest, and subtest
+4. The training dataset was merged with the testing dataset
+        mergeall= merged dataset with all training and test data, and respective subject ids
+5. Next, the columns with mean and standard deviation data were selecyed to create a new dataset
+        colnames = vector with all column names from mergeall
+        mean_sd = condition to find subject id column, activityId column, subjectId column, and all                     columns with mean and standard deviation
+        setmean_sd = dataset of all data with mean and standrad deviation
+        activityNames = merged dataset with meand/sd variables and activities, grouped by activityIds 
+6. Next, a tidy dataset was created and organized by subject ID
+        tidy = dataset ordered by subjectID and activityId
+7. Lastly the tidy dataset was saved as a .txt file in the working directory
+        
+
+
+
